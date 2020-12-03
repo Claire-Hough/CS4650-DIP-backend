@@ -17,16 +17,18 @@ def img_resize(img, size):
     return resized_img
 
 def gray_to_color(img):
-    w, h = img.shape
-    ret = np.empty((w, h, 3), dtype=np.uint8)
-    ret[:, :, 2] =  ret[:, :, 1] =  ret[:, :, 0] =  img
-    return ret
+    # blue
+    img[:,:,0] = (img[:,:,0] * 0.59).astype(int)
+    # green
+    img[:,:,1] = (img[:,:,1] * 0.11).astype(int)
+    #red
+    img[:,:,2] = (img[:,:,2] * 0.5).astype(int)
+    return img
 
-#current_image = input("Enter image name:" sys.argv[1])
-#current_image = Image.open(sys.argv[1])
-#current_image.save(sys.argv[1])
 
-current_image = cv2.imread(sys.argv[1], cv2.IMREAD_GRAYSCALE)
+
+
+current_image = cv2.imread("Fig1016(a)(building_original).tif")
 cv2.imshow('Original Image', current_image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
@@ -46,9 +48,10 @@ cv2.destroyAllWindows()
 new_image = gray_to_color(current_image)
 #compare1 = np.concatenate((current_image, new_image), axis =1)
 #cv2.imshow('Gray To Color', new_image)
-plt.axis("off")
-plt.imshow(cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB))
-plt.show()
+#plt.axis("off")
+#plt.imshow(cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB))
+cv2.imshow('Gray to Color', new_image)
+#plt.show()
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
