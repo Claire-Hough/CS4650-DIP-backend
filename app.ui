@@ -151,30 +151,36 @@ font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QSlider" name="sharpSlide">
+    <widget class="QRadioButton" name="sharpSlide">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>260</y>
-     <width>251</width>
-     <height>22</height>
+     <width>82</width>
+     <height>21</height>
     </rect>
    </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Sharpen</string>
    </property>
   </widget>
-  <widget class="QSlider" name="contrastSlide">
+  <widget class="QRadioButton" name="blurSlide">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>320</y>
-     <width>251</width>
-     <height>22</height>
+     <width>82</width>
+     <height>21</height>
     </rect>
    </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Blur</string>
    </property>
   </widget>
   <widget class="QComboBox" name="sizeBox">
@@ -261,7 +267,7 @@ font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
     <string>Sharpness:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="contrastLabel">
+  <widget class="QLabel" name="blurLabel">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -274,7 +280,7 @@ font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
     <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
    <property name="text">
-    <string>Contrast:</string>
+    <string>Blur:</string>
    </property>
   </widget>
   <widget class="QLabel" name="sizeLabel">
