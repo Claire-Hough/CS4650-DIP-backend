@@ -45,9 +45,8 @@ class App(QDialog, Ui_Dialog):
         self.blueSlide.setMaximum(200)
         self.sharpSlide.toggled.connect(self.sharpChanged)
         self.blurSlide.toggled.connect(self.blurChanged)
-        self.rgbRadio.toggled.connect(self.rgbChecked)
+        # self.rgbRadio.toggled.connect(self.rgbChecked)
         self.grayscaleRadio.toggled.connect(self.grayscaleChecked)
-        self.sizeBox.currentIndexChanged.connect(self.sizeChanged)
 
     def getFile(self):
         fname, _ = QFileDialog.getOpenFileName(self, 'Open file', 
@@ -149,19 +148,15 @@ class App(QDialog, Ui_Dialog):
 
         self.updateImg2(img)
 
-    def rgbChecked(self):
-        if self.rgbRadio.isChecked():
-            print("rgb")
+    # def rgbChecked(self):
+    #     if self.rgbRadio.isChecked():
+    #         print("rgb")
 
     def grayscaleChecked(self):
-        # if self.grayscaleRadio.isChecked():
-        img = grayConversion(self.image)
-        self.updateImg2(img)
-        print("grayscale")
-
-    def sizeChanged(self):
-        print(self.sizeBox.currentText())
-
+        if self.grayscaleRadio.isChecked():
+            img = grayConversion(self.image)
+            self.updateImg2(img)
+            print("grayscale")
 
     def onTimeout(self):
         self.errorSuccess.setText("")
