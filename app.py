@@ -121,32 +121,34 @@ class App(QDialog, Ui_Dialog):
         # img = sharpChanged(self.image, value)
         # self.updateImg2(self.image)
 
-        cv2.imshow('Original Image', self.image)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        if self.sharpSlide.isChecked():
+            cv2.imshow('Original Image', self.image)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
 
-        self.updateImg(self.imgFileName)
-        img = sharpChanged(self.image)
+            # self.updateImg(self.imgFileName)
+            img = sharpChanged(self.image)
 
-        cv2.imshow('Sharpened Image', img)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+            cv2.imshow('Sharpened Image', img)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
 
-        self.updateImg2(img)
+            self.updateImg2(img)
 
     def blurChanged(self, value):
-        cv2.imshow('Original Image', self.image)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        if self.blurSlide.isChecked():
+            cv2.imshow('Original Image', self.image)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
 
-        self.updateImg(self.imgFileName)
-        img = cv2.GaussianBlur(self.image,(5,5),100)
+            # self.updateImg(self.imgFileName)
+            img = cv2.GaussianBlur(self.image,(5,5),100)
 
-        cv2.imshow('Blurred Image', img)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+            cv2.imshow('Blurred Image', img)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
 
-        self.updateImg2(img)
+            self.updateImg2(img)
 
     # def rgbChecked(self):
     #     if self.rgbRadio.isChecked():
